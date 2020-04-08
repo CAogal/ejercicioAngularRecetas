@@ -1,0 +1,18 @@
+<a [routerLink]="['/help']">AYUDA</a>
+<ul>
+  <app-hero-detail *ngFor="let heroe of herosList; index as i" [num]="i" [heroe]="heroe"
+    (selectedHero)="selected($event)">
+  </app-hero-detail>
+</ul>
+
+<button (click)="likeAll()">me gustan todos</button>
+{{ name }}
+
+<app-hero [(name)]="name"></app-hero>
+
+<!-- <app-hero [name]="'name'"></app-hero>
+
+<app-hero name="name"></app-hero>
+
+
+<app-hero [name]="true"></app-hero> -->
