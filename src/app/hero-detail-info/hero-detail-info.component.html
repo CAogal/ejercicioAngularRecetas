@@ -1,4 +1,5 @@
-<p>id: {{heroSelected?.id || 'sin id'}} - name: {{heroSelected && heroSelected.name || 'sin nombre'}}</p>
+<p [ngClass]="{ 'isFav': isFav }">id: {{heroSelected?.id || 'sin id'}} - name:
+  {{heroSelected && heroSelected.name || 'sin nombre'}}</p>
 <p *ngIf="verFecha">{{heroSelected?.birthdate | date}}</p>
 
 <button [routerLink]="['/heros']">Volver</button>

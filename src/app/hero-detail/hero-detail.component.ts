@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { HeroService } from '../hero.service';
 
 @Component({
   selector: 'app-hero-detail',
@@ -14,7 +15,7 @@ export class HeroDetailComponent implements OnInit {
 
   liked = false;
 
-  constructor() {}
+  constructor(private heroService: HeroService) {}
 
   ngOnInit() {}
 
@@ -23,6 +24,6 @@ export class HeroDetailComponent implements OnInit {
   }
 
   like() {
-    this.liked = true;
+    this.heroService.setHeroFav(this.heroe);
   }
 }

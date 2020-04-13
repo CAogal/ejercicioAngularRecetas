@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -9,6 +10,7 @@ import { HerosListComponent } from './heros-list/heros-list.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HelpComponent } from './help/help.component';
 import { HeroDetailInfoComponent } from './hero-detail-info/hero-detail-info.component';
+import { HeroFavComponent } from './hero-fav/hero-fav.component';
 
 const appRoutes: Routes = [
   {
@@ -38,8 +40,14 @@ const appRoutes: Routes = [
     HerosListComponent,
     HelpComponent,
     HeroDetailInfoComponent,
+    HeroFavComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, RouterModule.forRoot(appRoutes)],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { heroes } from '../heros-list/heros-list.component';
+import { HeroService } from '../hero.service';
 
 @Component({
   selector: 'app-hero-detail-info',
@@ -12,13 +12,25 @@ export class HeroDetailInfoComponent implements OnInit {
   verFecha: boolean;
   heroSelected;
 
-  constructor(private activatedRoute: ActivatedRoute) {}
+  isFav = false;
+
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private heroService: HeroService
+  ) {}
 
   ngOnInit() {
     this.id = Number(this.activatedRoute.snapshot.params.id);
     this.verFecha =
       this.activatedRoute.snapshot.queryParams.verFecha === 'true';
-    this.heroSelected = heroes.find((hero) => hero.id === this.id);
+    this.heroSelected = this.heroService.getOne(this.id);
     console.log(this.activatedRoute);
+    this.heroService.getHeroFav().subscribe((hero) => {
+      if (hero && hero.id === this.id) {
+        this.isFav = true;
+      } else {
+        this.isFav = false;
+      }
+    });
   }
 }

@@ -5,10 +5,14 @@
   </app-hero-detail>
 </ul>
 
-<button (click)="likeAll()">me gustan todos</button>
-{{ name }}
+<app-hero-fav></app-hero-fav>
+
+<!-- <button (click)="likeAll()">me gustan todos</button>
+{{ name }} -->
 
 <app-hero [(name)]="name"></app-hero>
+
+<div>clima: {{clima}}, temperatura: {{temperatura}}</div>
 
 <!-- <app-hero [name]="'name'"></app-hero>
 
