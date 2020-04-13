@@ -1,0 +1,28 @@
+<h1>Añadir heroe:</h1>
+
+<label for="name">Nombre</label>
+<input id="name" type="text" [(ngModel)]="name">
+
+
+<label for="birth">Fecha de nacimiento</label>
+<input id="birth" type="text" [(ngModel)]="birth">
+
+
+<button (click)="create()">Añadir!</button>
+
+
+<!-- Reactive forms -->
+
+<form [formGroup]="form">
+  <p *ngIf="error" style="color: red"> Debes rellenar correctamente el nombre</p>
+
+  <label for="name">Nombre</label>
+  <input id="name" type="text" formControlName="name">
+
+
+  <label for="birth">Fecha de nacimiento</label>
+  <input id="birth" type="text" formControlName="birthdate">
+
+  <button (click)="preload()">Ejemplo</button>
+  <button (click)="createReactiveForm()">Añadir!</button>
+</form>

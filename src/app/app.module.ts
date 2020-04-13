@@ -11,6 +11,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { HelpComponent } from './help/help.component';
 import { HeroDetailInfoComponent } from './hero-detail-info/hero-detail-info.component';
 import { HeroFavComponent } from './hero-fav/hero-fav.component';
+import { HeroesFormComponent } from './heroes-form/heroes-form.component';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
   {
@@ -41,12 +44,15 @@ const appRoutes: Routes = [
     HelpComponent,
     HeroDetailInfoComponent,
     HeroFavComponent,
+    HeroesFormComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
